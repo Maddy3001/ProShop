@@ -1,0 +1,26 @@
+{
+    "user1": {
+        "id": 1,
+        "firstName": "madhav",
+        "lastName": "jha",
+        "email": "madhav.gmail.com"
+    },
+    "user2": {
+        "id": 2,
+        "firstName": "shivam",
+        "lastName": "shukla",
+        "email": "shivam.gmail.com"
+    },
+    "user3": {
+        "id": 3,
+        "firstName": "bipin",
+        "lastName": "vishwakarma",
+        "email": "bipin.gmail.com"
+    },
+    "user4" : {
+        "id" : 4,
+        "firstName" : "jayesh",
+        "lastName" : "mane",
+        "email" : "jayesh.gmail.com"
+    }
+}
