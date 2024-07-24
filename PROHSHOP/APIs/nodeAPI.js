@@ -3,7 +3,7 @@ const cors = require('cors');
 const app = express();
 const secretKey = "secretKey"
 const jwt = require('jsonwebtoken')
-const { showData, showAllData, saveData, calcAmount, deleteProduct, sortData } = require('../dataAccessLayers/dboperations');
+const { showData, showAllData, saveData, calcAmount, deleteProduct, sortData, searchData } = require('../dataAccessLayers/dboperations');
 
 app.use(express.json());
 app.use(
@@ -12,14 +12,14 @@ app.use(
     })
 );
 
-app.get('/getproductDetails/:id', function (req, res) {
+app.get('/getproductDetails', function (req, res) {
     showData(req.params.id, function (response) {
         res.send(response)
     });
 });
 
-app.get('/getproductDetails', function (req, res) {
-    showAllData(req, function (response) {
+app.get('/getproductDetails/:page/:pageSize', function (req, res) {
+    showAllData(req.params, function (response) {
         res.send(response)
     });
 });
@@ -38,12 +38,12 @@ app.get('/showAmount', function (req, res) {
     })
 })
 
-// app.get('/conditionalData/:Amount?/:pId?', function (req, res) {
-//     const { Amount, pId } = req.params
-//     conditionalData(Amount, pId, function (response) {
-//         res.send(response)
-//     })
-// })
+app.get('/searchData/:pname', function (req, res) {
+    searchData(req, function (response) {
+        res.send(response)
+    })
+})
+
 
 app.delete('/deleteProduct/:id', function (req, res) {
     deleteProduct(req.params.id, function (response) {
@@ -69,4 +69,4 @@ app.post('/login', function (req, res) {
     })
 })
 
-app.listen(8080);
+app.listen(process.env.PORT || 8080);

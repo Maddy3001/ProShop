@@ -18,7 +18,7 @@ app.post('/login', function (req, res) {
         userName: "anil",
         email: "abc@test.com"
     }
-    jwt.sign({ user }, secretKey, { expiresIn: '300s' }, function (error, token) {
+    jwt.sign({ user }, secretKey, { expiresIn: '7200s' }, function (error, token) {
         res.json({
             token
         })
